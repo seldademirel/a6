@@ -1,5 +1,6 @@
 package font_finder;
 
+
 import java.io.File;
 import java.nio.file.Files;
 import java.text.DecimalFormat;
@@ -46,32 +47,32 @@ public class FontFinder extends Application {
 		visitedFiles++;
 		if (hasToBeConsidered(file)) { // proves that path is valid
 			if (file.isFile()) { //wenn datei
-				if (matches(file)) { // wenn Font (wird gepr¸ft durch methode matches)
+				if (matches(file)) { // wenn Font (wird gepr√ºft durch methode matches)
 					fonts.add(file); // font wird gespeichert
-					consideredFiles++; // font z‰hler wird addiert
+					consideredFiles++; // font z√§hler wird addiert
 				} else {
-					skippedFiles++; // kein font dann skippedFiles hochz‰hlen
+					skippedFiles++; // kein font dann skippedFiles hochz√§hlen
 				} // else
 			} else { // if file is directory
 				final File[] files = file.listFiles(); // wird die unterodner liste vom verzeichnis im Array files gespeichert
 				if (files != null) { // wenn es unterordner gibt
-					for (final File f : files) { // dann f¸r jeden ordner getFontFiles rekursiv aufrufen
+					for (final File f : files) { // dann f√ºr jeden ordner getFontFiles rekursiv aufrufen
 						getFontFiles(f);
 					} // for
 				} // if
 			} // else
 		} else {
-			skippedFiles++; // wenn shortcut etc. dann skippedFiles hochz‰hlen
+			skippedFiles++; // wenn shortcut etc. dann skippedFiles hochz√§hlen
 		} // else
 	}// method()
 
 	private boolean matches(final File file) {
-		final String path = file.getAbsolutePath();//speichert den Pfad einer datei vom ausgew‰hlten ordner in path
-		return path.matches(".*\\.([Tt][Tt][Cc]|[Tt][Tt][Ff]|[Oo][Tt][Ff])"); // ob path dem RegEx zutrifft und gibt dann boolean wert zur¸ck
+		final String path = file.getAbsolutePath();//speichert den Pfad einer datei vom ausgew√§hlten ordner in path
+		return path.matches(".*\\.([Tt][Tt][Cc]|[Tt][Tt][Ff]|[Oo][Tt][Ff])"); // ob path dem RegEx zutrifft und gibt dann boolean wert zur√ºck
 	}// method()
 
 	private void printResult() {
-		for (final File file : fonts) {// l‰uft den arraylist mit den fonts durch
+		for (final File file : fonts) {// l√§uft den arraylist mit den fonts durch
 			System.out.println(file); // alle fonts werden ausgegeben
 		} // for
 		System.out.println();
